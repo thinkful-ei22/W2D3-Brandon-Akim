@@ -59,13 +59,14 @@ const shoppingList = (function(){
   
   function handleNewItemSubmit() {
       
-      $('#js-shopping-list-form').submit(function (event) {
-        event.preventDefault();
+    $('#js-shopping-list-form').submit(function (event) {
+      event.preventDefault();
       const newItemName = $('.js-shopping-list-entry').val();
       $('.js-shopping-list-entry').val('');
       api.createItem(newItemName, (newItem) => {
         store.addItem(newItem);
         render();
+      });
     });
   }
   
