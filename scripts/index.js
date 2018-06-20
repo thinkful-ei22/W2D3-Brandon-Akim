@@ -3,16 +3,17 @@
 
 $(document).ready(function() {
   shoppingList.bindEventListeners();
-  // api.getItems((items) => {
-  //   store.items.forEach((item) => store.addItem(item));
-  //   shoppingList.render();
+  api.getItems((items) => {
+    store.items.forEach((item) => store.addItem(item));
+    shoppingList.render();
   
-  // });
+  });
   api.getItems((items) => {
     const item = items[0];
-    console.log('the id of item is: ', item, item.id);
+    //console.log('the id of ',item,  'is: ', item.id);
     
-    api.updateItem(item.id, { name: 'foobar' }, () => {
+    const newLocal = api.updateItem(item.id, { name: 'foobar' }, () => {
+      console.log('the id of ', item, 'is: ', item.id);
       console.log('updated!');
     });
   });
