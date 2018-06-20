@@ -1,7 +1,7 @@
 'use strict';
 /* global $ */
 const api = (function(){
-  const BASE_URL = 'https://thinkful-list-api.herokuapp.com/[Brandon-Akim]';
+  const BASE_URL = 'https://thinkful-list-api.herokuapp.com/Brandon-Akim';
   const getItems = callback => {
   
     $.getJSON(`${BASE_URL}/items`, callback);
@@ -23,8 +23,20 @@ const api = (function(){
     });
   };
 
+  const updateItem = function (id, updateData, callback){
+    console.log('This is the id' ,id);
+    $.ajax({
+
+      url: BASE_URL +'/items/'+ id,
+      method: 'PATCH',
+      contentType: 'application/json',
+      data: JSON.stringify(updateData),
+      success: callback
+    });
+  };
+
   return {
-    getItems, createItem
+    getItems, createItem, updateItem
   };
 }());
 
