@@ -17,6 +17,11 @@ $(document).ready(function() {
       console.log('updated!');
     });
   });
+
+  const item = store.items[0];
+  console.log('current name: ' + item.name);
+  store.findAndUpdate(item.id, { name: 'foobar' });
+  console.log('new name: ' + item.name);
 });
 
 
