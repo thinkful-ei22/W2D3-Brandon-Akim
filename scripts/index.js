@@ -19,3 +19,9 @@ console.log(api.BASE_URL);
 // $.getJSON('https://thinkful-list-api.herokuapp.com/ei-student/items', (response) => {
 //   console.log('api response:', response);
 // });
+
+api.createItem('pears', (newItem) => {
+  api.getItems((items) => {
+    console.log(items);
+  });
+});
