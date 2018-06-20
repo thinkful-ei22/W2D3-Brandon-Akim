@@ -1,4 +1,5 @@
-/* global shoppingList, store */
+'use strict';
+/* global shoppingList, $ store */
 
 $(document).ready(function() {
   shoppingList.bindEventListeners();
@@ -12,3 +13,9 @@ api.getItems(function(data) {
 });
 
 console.log(api.BASE_URL);
+
+
+
+// $.getJSON('https://thinkful-list-api.herokuapp.com/ei-student/items', (response) => {
+//   console.log('api response:', response);
+// });
